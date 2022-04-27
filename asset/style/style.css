@@ -131,7 +131,6 @@ layout
   font-size: 12px;
 }
 
-
 /*====================================
 project
 ====================================*/
@@ -141,6 +140,7 @@ project
   color: rgb(178, 172, 172);
   height: 70%;
   padding: 2% 1%;
+  overflow: hidden;
 }
 .p-contens01__title, .p-contens02__title, .p-contens03__title, .p-contens04__title {
   padding-bottom: 4%;
