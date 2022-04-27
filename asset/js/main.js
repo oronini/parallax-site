@@ -1,12 +1,12 @@
 function loadView() {
   window.addEventListener('load', () => {
-    const splash = document.getElementById('splash');
-    const eye = document.querySelector('.eyeColor');
+    const splash = document.getElementById('js-splash');
+    const eye = document.querySelector('.js-eyeColor');
     console.log(eye);
     setTimeout(
       function ()  {
         eye.style.opacity = '1';
-      },1200
+      }, 1200
     )
     setTimeout(
       function () {
@@ -20,8 +20,7 @@ function loadView() {
             fill: "forwards"
           }
         );
-      } ,
-      2300
+      }, 2300
     );
     setTimeout(
       function () {
@@ -51,18 +50,18 @@ function actionImg(wrap, action, anime) {
   });
 }
 
-actionImg('js-top', '.js-bgText01', 'fadeUp03');
-actionImg('js-contensWrap01', '.js-action01', 'fadeUp01');
-actionImg('js-contensWrap01', '.js-bgText02', 'fadeUp03');
-actionImg('js-contensWrap02', '.js-action02', 'fadeUp02');
-actionImg('js-contensWrap02', '.js-bgText03', 'fadeUp03');
+actionImg('js-topBgImg', '.js-bgText01', 'js-fadeUp03');
+actionImg('js-contensWrap01', '.js-action01', 'js-fadeUp01');
+actionImg('js-contensWrap01', '.js-bgText02', 'js-fadeUp03');
+actionImg('js-contensWrap02', '.js-action02', 'js-fadeUp02');
+actionImg('js-contensWrap02', '.js-bgText03', 'js-fadeUp03');
 
-actionImg('js-contensWrap03', '.js-action03', 'fadeUp01');
-actionImg('js-contensWrap03', '.js-bgText04', 'fadeUp03');
+actionImg('js-contensWrap03', '.js-action03', 'js-fadeUp01');
+actionImg('js-contensWrap03', '.js-bgText04', 'js-fadeUp03');
 
-actionImg('js-contensWrap04', '.js-action04', 'fadeUp02');
-actionImg('js-contensWrap04', '.js-bgText05', 'fadeUp03');
-actionImg('js-bg6', '.js-bgText06', 'fadeUp03');
+actionImg('js-contensWrap04', '.js-action04', 'js-fadeUp02');
+actionImg('js-contensWrap04', '.js-bgText05', 'js-fadeUp03');
+actionImg('js-bg6', '.js-bgText06', 'js-fadeUp03');
 
 
 const toTopBtn = document.getElementById('js-toTop');
@@ -76,10 +75,10 @@ function fixedHeader() {
     const bg2Top = bg2.getBoundingClientRect().top + scrollY;
     if (scrollY > headerTop) {
       header.classList.add('js-fixedHeader');
-      toTopBtn.classList.add('show');
+      toTopBtn.classList.add('js-show');
     } else if (scrollY < bg2Top) {
       header.classList.remove('js-fixedHeader');
-      toTopBtn.classList.remove('show');
+      toTopBtn.classList.remove('js-show');
     }
   });
 }
@@ -88,7 +87,7 @@ fixedHeader();
 
 function toTOP() {
   toTopBtn.addEventListener('click', () => {
-    const scrollTop =document.getElementById('js-top');
+    const scrollTop =document.getElementById('js-topBgImg');
     scrollTop.scrollIntoView({
       behavior:'smooth',
       block:'start'

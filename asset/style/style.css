@@ -1,3 +1,7 @@
+/*====================================
+bese
+====================================*/
+
 body,
 html {
   height: 100%;
@@ -7,58 +11,87 @@ html {
   font-size: 62.5%;
 }
 
-/*固定する背景*/
-.l-parallaxBg {
-  background-attachment: fixed;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+body {
+  overflow-y: hidden;
+}
+
+/*====================================
+layout
+====================================*/
+/* load splash */
+.l-splash {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100%;
   height: 100%;
+  z-index: 999;
+  background: #999;
+}
+.l-splash__wrap {
+  width: 35%;
+  max-width: 250px;
+  height: auto;
+  animation-name: fadeInAnime;
+  animation-duration:0.8s;
+  animation-fill-mode:forwards;
+  opacity: 0;
+}
+@keyframes fadeInAnime{
+  from {
+    opacity: 0;
+  transform: translateY(500px);
+  }
+  to {
+    opacity: 1;
+  transform: translateY(0);
+  }
+}
+.l-splash__text {
+  color: #000;
+  margin-top: 50px;
+  text-align: center;
+  font-size: 4rem;
+  font-size: 40px;
+  text-shadow: 3px 3px 2px rgb(230, 230, 230);
+}
+.l-splash__logo {
   position: relative;
 }
 
-.bgimg1{
+.l-main {
+  width: 100%;
+  height: 100%;
+}
+
+.l-parallaxBg01{
   background-image: url('../img/bg1.jpg');
 }
-.bgimg2 {
+.l-parallaxBg02 {
   background-image: url('../img/bg2.jpg');
 }
-.bgimg3 {
+.l-parallaxBg03 {
   background-image: url('../img/bg3.jpg');
 }
-.bgimg4 {
+.l-parallaxBg04 {
   background-image: url('../img/bg4.jpg');
 }
-.bgimg5 {
+.l-parallaxBg05 {
   background-image: url('../img/bg5.jpg');
 }
-.bgimg6 {
+.l-parallaxBg06 {
   background-image: url('../img/bg6.jpg');
 }
 
-.l-parallaxBg__text {
+.l-parallaxBg01__text, .l-parallaxBg02__text, .l-parallaxBg03__text, .l-parallaxBg04__text, .l-parallaxBg05__text, .l-parallaxBg06__text {
   position: absolute;
   bottom: 5%;
   color: #fff;
+  font-size: 6rem;
   font-size: 60px;
   text-shadow: 5px 5px 3px #7a7889;
 }
-
-.textPosition1 {
-  left: 5%;
-}
-
-.textPosition2 {
-  right: 5%;
-}
-
-.textPosition3 {
-  bottom: 2%;
-  right: 5%;
-}
-
-
-/*スクロールするコンテンツ*/
 
 .l-header {
   align-items: center;
@@ -66,9 +99,7 @@ html {
   color: rgb(178, 172, 172);
   height: 5%;
   width: 100%;
-  overflow: hidden;
 }
-
 .l-header__wrap {
   display: flex;
   justify-content: space-between;
@@ -78,72 +109,58 @@ html {
   height: 100%;
   padding: 1% 3% 1%;
 }
-
 .l-header__title {
   margin: 0 0 auto;
-  font-size: 15px;
   font-size: 1.5rem;
+  font-size: 15px;
 }
-
 .l-header__img {
   height: 80%;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
 }
-
-.l-header__toTopBtn {
-  display: flex;
-  flex-direction: column;
-}
-
 .l-header__toTopIcon {
   width: 45%;
   margin: 0 auto;
   cursor: pointer;
 }
-
 .l-header__toTopText {
   text-align: center;
   font-size: 1.2rem;
   font-size: 12px;
 }
 
+
+/*====================================
+project
+====================================*/
+/*スクロールコンテンツ*/
 .p-contens01, .p-contens02, .p-contens03, .p-contens04 {
-  align-items: center;
   background-color: rgb(83, 78, 78);
   color: rgb(178, 172, 172);
   height: 70%;
   padding: 2% 1%;
-  overflow: hidden;
 }
-
 .p-contens01__title, .p-contens02__title, .p-contens03__title, .p-contens04__title {
   padding-bottom: 4%;
-  font-size: 13px;
   font-size: 1.3rem;
-  /* text-align: center; */
+  font-size: 13px;
 }
-
 .p-contens01__list, .p-contens02__list, .p-contens03__list, .p-contens04__list {
   display: flex;
   justify-content: space-between;
   height: 85%;
   padding: 0 2%;
-  list-style: none;
 }
-
 .p-items01, .p-items02, .p-items03, .p-items04 {
   width: 23.5%;
   height:100%;
 }
-
 .p-items01__img, .p-items02__img, .p-items03__img, .p-items04__img {
-  width: 100%;
   height: 80%;
-  box-shadow: 7px 7px 3px #000;
+  box-shadow: 7px 7px 3px rgb(42, 40, 47);
 }
-
 .p-items01__text, .p-items02__text, .p-items03__text, .p-items04__text {
   font-size: 1.3rem;
   font-size: 13px;
@@ -151,13 +168,182 @@ html {
   line-height: 1.25;
 }
 
-
-.coverImg {
-  object-fit: cover;
-
+/*====================================
+component
+====================================*/
+/*固定背景*/
+.c-bgimg {
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  position: relative;
 }
+
+.c-textPositionLeft {
+  left: 5%;
+}
+.c-textPositionRight {
+  right: 5%;
+}
+.c-textPositionBottom {
+  bottom: 2%;
+  right: 5%;
+}
+
+.c-coverImg {
+  object-fit: cover;
+}
+
 /*=================================
-js-anime
+js
+==================================*/
+.js-hidden {
+	opacity: 0;
+}
+
+.js-eyeColor {
+  background-color: aqua;
+  width: 6%;
+  height: 4%;
+  position: absolute;
+  top: 18%;
+  left: 46%;
+  z-index: -1;
+  transform: skewX(33deg);
+  opacity: 0;
+}
+
+.js-fixedHeader {
+  position: fixed;
+  top: 0;
+  z-index: 99;
+  transition: background-color 1.2s 0.5s;
+  background-color: rgba(83, 78, 78, 0.35);
+}
+.js-up{
+  opacity: 0;
+  transition: all 1.5s ease;
+}
+.js-show {
+  opacity: 1;
+}
+
+.js-fadeUp01 {
+  animation-name:fadeUpAnime01;
+  animation-duration:1.0s;
+  animation-fill-mode:forwards;
+  opacity: 0;
+}
+@keyframes fadeUpAnime01{
+  from {
+    opacity: 0;
+    transform: translate(-500px, -200px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+  
+.js-fadeUp02 {
+  animation-name:fadeUpAnime02;
+  animation-duration:1.0s;
+  animation-fill-mode:forwards;
+  opacity: 0;
+}
+@keyframes fadeUpAnime02{
+  from {
+    opacity: 0;
+    transform: translate(500px, -200px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.js-fadeUp03 {
+  animation-name:fadeUpAnime03;
+  animation-duration:2.0s;
+  animation-fill-mode:forwards;
+  opacity: 0;
+}
+@keyframes fadeUpAnime03{
+  from {
+    opacity: 0;
+    transform: translate(-10, -10);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*=================================
+responsive
+==================================*/
+
+@media screen and (max-width: 768px) { 
+
+  .l-header__title {
+    font-size: 1.0rem;
+    font-size: 10px;
+  }
+
+  .l-header__toTopIcon {
+    width: 30%;
+  }
+  
+  .l-header__toTopText {
+    text-align: center;
+    font-size: 1.0rem;
+    font-size: 10px;
+  }
+  
+  .p-contens01__title, .p-contens02__title, .p-contens03__title, .p-contens04__title {
+    font-size: 0.9rem;
+    font-size: 9px;
+  }
+
+  .p-contens01__list, .p-contens02__list, .p-contens03__list, .p-contens04__list {
+    display: flex;
+    flex-wrap: wrap;
+    height: 90%;
+    list-style: none;
+  } 
+  
+  .p-items01:nth-of-type(n + 3), .p-items02:nth-of-type(n + 3), .p-items03:nth-of-type(n + 3), .p-items04:nth-of-type(n + 3) {
+    margin-top: 5%;
+  } 
+  
+  .p-items01, .p-items02, .p-items03, .p-items04 {
+    width: 47.5%;
+    height:47.5%;
+  }
+  
+  .p-items01__text, .p-items02__text, .p-items03__text, .p-items04__text {
+    font-size: 1.1rem;
+    font-size: 11px;
+    margin-top: 5%;
+    line-height: 1.3;
+  }
+  
+  .l-splash__text {
+    margin-top: 30px;
+    font-size: 2.5rem;
+    font-size: 25px;
+  }
+  
+  .l-parallaxBg__text {
+    font-size: 4rem;
+    font-size: 40px;
+  }
+}
+
+/*=================================
+delay
 ==================================*/
 .delay-time02{
   animation-delay: 0.2s;
@@ -194,240 +380,4 @@ js-anime
 }
 .delay-time18{
   animation-delay: 1.8s;
-}
-.delay-time20{
-  animation-delay: 2.0s;
-}
-.delay-time21{
-  animation-delay: 2.1s;
-}  
-.delay-time22{
-  animation-delay: 2.2s;
-}
-.delay-time24{
-  animation-delay: 2.4s;
-}
-.delay-time26{
-  animation-delay: 2.6s;
-}
-.delay-time27{
-  animation-delay: 2.7s;
-}
-
-.box{
-	opacity: 0;
-}
-
-.fadeUp01 {
-  animation-name:fadeUpAnime01;
-  animation-duration:1.0s;
-  animation-fill-mode:forwards;
-  opacity: 0;
-}
-  @keyframes fadeUpAnime01{
-    from {
-      opacity: 0;
-      transform: translate(-500px, -200px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  .fadeUp02 {
-    animation-name:fadeUpAnime02;
-    animation-duration:1.0s;
-    animation-fill-mode:forwards;
-    opacity: 0;
-  }
-  @keyframes fadeUpAnime02{
-    from {
-      opacity: 0;
-      transform: translate(500px, -200px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .fadeUp03 {
-    animation-name:fadeUpAnime03;
-    animation-duration:2.0s;
-    animation-fill-mode:forwards;
-    opacity: 0;
-  }
-  @keyframes fadeUpAnime03{
-    from {
-      opacity: 0;
-      transform: translate(-10, -10);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-
-  .js-fixedHeader {
-    position: fixed;
-    top: 0;
-    z-index: 99;
-    transition: background-color 1.2s 0.5s;
-    background-color: rgba(83, 78, 78, 0.35);
-  }
-
-  .js-hidden {
-    display: none;
-  }
-
-  .up{
-    opacity: 0;
-    transition: all 1.5s ease;
-  }
-
-.up.show {
-    opacity: 1;
-    transform: none;
-  }
-
-.op{
-    transform: translate(0, 0);
-  }
-
-
-.l-splash {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: 999;
-  background: #999;
-  text-align: center;
-
-}
-
-body {
-  overflow-y: hidden;
-}
-
-.l-splash__wrap {
-  width: 35%;
-  max-width: 250px;
-  height: auto;
-}
-
-.fadeIn {
-  animation-name: fadeUpAnime;
-  animation-duration:0.8s;
-  animation-fill-mode:forwards;
-  opacity: 0;
-}
-
-.l-splash__text {
-  color: #000;
-  margin-top: 50px;
-  text-align: center;
-  font-size: 40px;
-  text-shadow: 3px 3px 2px rgb(230, 230, 230);
-}
-
-.l-splash__logo {
-  position: relative;
-}
-
-.eyeColor {
-  background-color: aqua;
-  width: 6%;
-  height: 4%;
-  position: absolute;
-  top: 18%;
-  left: 46%;
-  z-index: -1;
-  transform: skewX(33deg);
-  opacity: 0;
-}
-
-.eyeShow {
-  opacity: 1;
-}
-
-@keyframes fadeUpAnime{
-  from {
-    opacity: 0;
-  transform: translateY(500px);
-  }
-  to {
-    opacity: 1;
-  transform: translateY(0);
-  }
-}
-
-
-
-
-/* w-720px以下にするとtextがはみ出す */
-@media screen and (max-width: 768px) { 
-
-  .l-header__title {
-    font-size: 10px;
-    font-size: 1.0rem;
-  }
-
-  .l-header__toTopIcon {
-    width: 30%;
-  }
-  
-  .l-header__toTopText {
-    text-align: center;
-    font-size: 10px;
-    font-size: 1.0rem;
-
-  }
-  
-  
-  .p-contens01__title, .p-contens02__title, .p-contens03__title, .p-contens04__title {
-    font-size: 0.9rem;
-    font-size: 9px;
-  }
-
-  .p-contens01__list, .p-contens02__list, .p-contens03__list, .p-contens04__list {
-    display: flex;
-    flex-wrap: wrap;
-    height: 90%;
-    list-style: none;
-  } 
-  
-  .p-items01:nth-of-type(n + 3), .p-items02:nth-of-type(n + 3), .p-items03:nth-of-type(n + 3), .p-items04:nth-of-type(n + 3) {
-    margin-top: 5%;
-  } 
-  
-  .p-items01, .p-items02, .p-items03, .p-items04 {
-    width: 48%;
-    height:48%;
-  }
-  
-
-  .p-items01__text, .p-items02__text, .p-items03__text, .p-items04__text {
-    font-size: 1.1rem;
-    font-size: 11px;
-    margin-top: 5%;
-    line-height: 1.3;
-  }
-  
-  .l-splash__text {
-    color: #000;
-    margin-top: 30px;
-    text-align: center;
-    font-size: 25px;
-  }
-  
-  .l-parallaxBg__text {
-    font-size: 40px;
-  }
-  
-
 }
